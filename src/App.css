@@ -561,10 +561,11 @@
 }
 
 .status-dot {
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  margin: 0 auto;
+  display: inline-block;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
 .status-dot.ok { background: var(--status-ok); box-shadow: 0 0 8px var(--status-ok); }

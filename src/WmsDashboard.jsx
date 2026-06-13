@@ -106,15 +106,15 @@ const WmsDashboard = () => {
                   <thead>
                     <tr>
                       <th style={{ backgroundColor: 'var(--table-header-bg)' }}>DC Location</th>
-                      <th style={{ backgroundColor: 'var(--table-header-bg)' }}>Status</th>
+                      <th style={{ backgroundColor: 'var(--table-header-bg)', textAlign: 'left', paddingLeft: '24px' }}>Status</th>
                     </tr>
                   </thead>
                   <tbody>
                     {selectedRow.statuses.map((status, idx) => (
                       <tr key={idx}>
                         <td style={{ fontWeight: 500 }}>DC {wmsData.columns[idx]}</td>
-                        <td>
-                           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13px', color: 'var(--text-secondary)' }}>
+                        <td style={{ textAlign: 'left', paddingLeft: '24px' }}>
+                           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '10px', fontSize: '13px', color: 'var(--text-secondary)' }}>
                              <WmsStatusIcon status={status} />
                              <span>{status}</span>
                            </div>
