@@ -1,0 +1,42 @@
+{
+  "ecommerce": [
+    { "system": "DollarTree.com", "status": "ok", "statusText": "Online", "uptime": "99.99%", "sessions": "24,512" },
+    { "system": "FamilyDollar.com", "status": "ok", "statusText": "Online", "uptime": "99.98%", "sessions": "18,204" },
+    { "system": "Mobile App (DT)", "status": "warn", "statusText": "Degraded", "uptime": "98.50%", "sessions": "8,102", "highlightSessions": true },
+    { "system": "Checkout Service", "status": "ok", "statusText": "Online", "uptime": "100%", "sessions": "-" }
+  ],
+  "pos": [
+    { "application": "DT POS Core", "region": "East Coast", "status": "ok", "statusText": "Stable", "offline": "12" },
+    { "application": "DT POS Core", "region": "West Coast", "status": "ok", "statusText": "Stable", "offline": "5" },
+    { "application": "FD POS Core", "region": "National", "status": "crit", "statusText": "Outage", "offline": "142", "highlightOffline": true },
+    { "application": "Inventory Scanner", "region": "National", "status": "ok", "statusText": "Stable", "offline": "0" }
+  ],
+  "logistics": [
+    { "location": "Chesapeake, VA", "status": "ok", "statusText": "OK", "queue": "Normal" },
+    { "location": "Joliet, IL", "status": "warn", "statusText": "Delayed", "queue": "High", "highlightQueue": true },
+    { "location": "Stockton, CA", "status": "ok", "statusText": "OK", "queue": "Normal" },
+    { "location": "Savannah, GA", "status": "ok", "statusText": "OK", "queue": "Normal" }
+  ],
+  "payments": [
+    { "provider": "Credit/Debit (Worldpay)", "latency": "845 ms", "status": "ok", "statusText": "OK" },
+    { "provider": "EBT Services", "latency": "1,204 ms", "status": "warn", "statusText": "Slow", "highlightLatency": true },
+    { "provider": "Gift Cards", "latency": "120 ms", "status": "ok", "statusText": "OK" },
+    { "provider": "PayPal (Online)", "latency": "450 ms", "status": "ok", "statusText": "OK" }
+  ],
+  "health": {
+    "authTime": "420ms",
+    "apiError": "0.04%",
+    "incidents": "2",
+    "dbLoad": "42%"
+  },
+  "infrastructure": [
+    { "component1": "Mainframe (CICS)", "status1": "ok", "component2": "Network (Routing)", "status2": "ok" },
+    { "component1": "Middleware (Kafka)", "status1": "ok", "component2": "Security (Firewalls)", "status2": "ok" },
+    { "component1": "Windows Servers", "status1": "ok", "component2": "Cloud VPN", "status2": "ok" }
+  ],
+  "databases": [
+    { "name": "Customer Data", "type": "Cassandra", "status": "ok", "statusText": "Stable", "lag": "12ms" },
+    { "name": "Inventory Master", "type": "Oracle", "status": "ok", "statusText": "Stable", "lag": "5ms" },
+    { "name": "Order History", "type": "SQL Server", "status": "warn", "statusText": "Warning", "lag": "1,400ms", "highlightLag": true }
+  ]
+}
