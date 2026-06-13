@@ -3,25 +3,39 @@
     { "system": "DollarTree.com", "status": "ok", "statusText": "Online", "uptime": "99.99%", "sessions": "24,512" },
     { "system": "FamilyDollar.com", "status": "ok", "statusText": "Online", "uptime": "99.98%", "sessions": "18,204" },
     { "system": "Mobile App (DT)", "status": "warn", "statusText": "Degraded", "uptime": "98.50%", "sessions": "8,102", "highlightSessions": true },
-    { "system": "Checkout Service", "status": "ok", "statusText": "Online", "uptime": "100%", "sessions": "-" }
+    { "system": "Checkout Service", "status": "ok", "statusText": "Online", "uptime": "100%", "sessions": "-" },
+    { "system": "Payment Gateway API", "status": "ok", "statusText": "Online", "uptime": "99.95%", "sessions": "12,001" },
+    { "system": "User Profile DB", "status": "ok", "statusText": "Online", "uptime": "99.90%", "sessions": "-" }
   ],
   "pos": [
     { "application": "DT POS Core", "region": "East Coast", "status": "ok", "statusText": "Stable", "offline": "12" },
     { "application": "DT POS Core", "region": "West Coast", "status": "ok", "statusText": "Stable", "offline": "5" },
+    { "application": "DT POS Core", "region": "Midwest", "status": "ok", "statusText": "Stable", "offline": "2" },
+    { "application": "DT POS Core", "region": "South", "status": "warn", "statusText": "Slow Sync", "offline": "45" },
     { "application": "FD POS Core", "region": "National", "status": "crit", "statusText": "Outage", "offline": "142", "highlightOffline": true },
-    { "application": "Inventory Scanner", "region": "National", "status": "ok", "statusText": "Stable", "offline": "0" }
+    { "application": "Inventory Scanner", "region": "East", "status": "ok", "statusText": "Stable", "offline": "0" },
+    { "application": "Inventory Scanner", "region": "West", "status": "ok", "statusText": "Stable", "offline": "4" },
+    { "application": "Self-Checkout UI", "region": "National", "status": "ok", "statusText": "Stable", "offline": "8" }
   ],
   "logistics": [
     { "location": "Chesapeake, VA", "status": "ok", "statusText": "OK", "queue": "Normal" },
     { "location": "Joliet, IL", "status": "warn", "statusText": "Delayed", "queue": "High", "highlightQueue": true },
     { "location": "Stockton, CA", "status": "ok", "statusText": "OK", "queue": "Normal" },
-    { "location": "Savannah, GA", "status": "ok", "statusText": "OK", "queue": "Normal" }
+    { "location": "Savannah, GA", "status": "ok", "statusText": "OK", "queue": "Normal" },
+    { "location": "San Bernardino, CA", "status": "ok", "statusText": "OK", "queue": "Normal" },
+    { "location": "Ridgefield, WA", "status": "ok", "statusText": "OK", "queue": "Normal" },
+    { "location": "Marianna, FL", "status": "ok", "statusText": "OK", "queue": "Normal" },
+    { "location": "Rome, NY", "status": "warn", "statusText": "Delayed", "queue": "Medium" },
+    { "location": "Warren, MO", "status": "ok", "statusText": "OK", "queue": "Normal" },
+    { "location": "Ocala, FL", "status": "ok", "statusText": "OK", "queue": "Normal" }
   ],
   "payments": [
     { "provider": "Credit/Debit (Worldpay)", "latency": "845 ms", "status": "ok", "statusText": "OK" },
     { "provider": "EBT Services", "latency": "1,204 ms", "status": "warn", "statusText": "Slow", "highlightLatency": true },
     { "provider": "Gift Cards", "latency": "120 ms", "status": "ok", "statusText": "OK" },
-    { "provider": "PayPal (Online)", "latency": "450 ms", "status": "ok", "statusText": "OK" }
+    { "provider": "PayPal (Online)", "latency": "450 ms", "status": "ok", "statusText": "OK" },
+    { "provider": "Apple Pay", "latency": "230 ms", "status": "ok", "statusText": "OK" },
+    { "provider": "Google Pay", "latency": "250 ms", "status": "ok", "statusText": "OK" }
   ],
   "health": {
     "authTime": "420ms",
@@ -32,11 +46,16 @@
   "infrastructure": [
     { "component1": "Mainframe (CICS)", "status1": "ok", "component2": "Network (Routing)", "status2": "ok" },
     { "component1": "Middleware (Kafka)", "status1": "ok", "component2": "Security (Firewalls)", "status2": "ok" },
-    { "component1": "Windows Servers", "status1": "ok", "component2": "Cloud VPN", "status2": "ok" }
+    { "component1": "Windows Servers", "status1": "ok", "component2": "Cloud VPN", "status2": "ok" },
+    { "component1": "Load Balancers", "status1": "ok", "component2": "DNS Services", "status2": "ok" },
+    { "component1": "Storage Arrays", "status1": "ok", "component2": "Backup Systems", "status2": "warn" }
   ],
   "databases": [
     { "name": "Customer Data", "type": "Cassandra", "status": "ok", "statusText": "Stable", "lag": "12ms" },
     { "name": "Inventory Master", "type": "Oracle", "status": "ok", "statusText": "Stable", "lag": "5ms" },
-    { "name": "Order History", "type": "SQL Server", "status": "warn", "statusText": "Warning", "lag": "1,400ms", "highlightLag": true }
+    { "name": "Order History", "type": "SQL Server", "status": "warn", "statusText": "Warning", "lag": "1,400ms", "highlightLag": true },
+    { "name": "Product Catalog", "type": "MongoDB", "status": "ok", "statusText": "Stable", "lag": "2ms" },
+    { "name": "Employee Records", "type": "PostgreSQL", "status": "ok", "statusText": "Stable", "lag": "4ms" },
+    { "name": "Log Aggregation", "type": "Elasticsearch", "status": "warn", "statusText": "High IO", "lag": "300ms" }
   ]
 }

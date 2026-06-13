@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
+  /* Default to dark mode */
   --bg-base: #060b13;
   --dt-green: #007a33;
   --dt-light-green: #00e676;
@@ -9,14 +10,71 @@
   
   --text-primary: #ffffff;
   --text-secondary: #8b9bb4;
+  --text-title: #ffffff;
   
   --glass-bg: rgba(13, 20, 36, 0.4);
   --glass-border: rgba(255, 255, 255, 0.06);
   --glass-highlight: rgba(255, 255, 255, 0.12);
+  --header-bg: rgba(6, 11, 19, 0.6);
   
+  --table-bg: rgba(0,0,0,0.15);
+  --table-border: rgba(255,255,255,0.03);
+  --table-row-border: rgba(255,255,255,0.02);
+  --table-hover: rgba(255,255,255,0.02);
+  --table-header-bg: rgba(15, 23, 42, 0.95);
+  
+  --metric-bg: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.2) 100%);
+  --brand-gradient: linear-gradient(135deg, #ffffff 0%, #00e676 100%);
+  
+  --bg-gradient: 
+    radial-gradient(circle at 15% 50%, rgba(0, 122, 51, 0.15), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(0, 229, 255, 0.1), transparent 25%),
+    radial-gradient(circle at 50% 80%, rgba(179, 136, 255, 0.05), transparent 30%);
+    
   --status-ok: #00e676;
   --status-warn: #ffea00;
   --status-crit: #ff1744;
+  
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --shadow-hover: rgba(0, 0, 0, 0.5);
+  --modal-overlay: rgba(0,0,0,0.7);
+}
+
+[data-theme="light"] {
+  --bg-base: #f0f4f8;
+  --dt-green: #007a33;
+  --dt-light-green: #007a33; /* Darker for legibility on light */
+  
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-title: #0f172a;
+  
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(0, 0, 0, 0.05);
+  --glass-highlight: rgba(255, 255, 255, 0.8);
+  --header-bg: rgba(255, 255, 255, 0.7);
+  
+  --table-bg: rgba(255,255,255,0.6);
+  --table-border: rgba(0,0,0,0.04);
+  --table-row-border: rgba(0,0,0,0.03);
+  --table-hover: rgba(0,0,0,0.02);
+  --table-header-bg: rgba(248, 250, 252, 0.95);
+  
+  --metric-bg: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(241,245,249,0.5) 100%);
+  --brand-gradient: linear-gradient(135deg, #0f172a 0%, #007a33 100%);
+  
+  --bg-gradient: 
+    radial-gradient(circle at 15% 50%, rgba(0, 122, 51, 0.05), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(0, 229, 255, 0.05), transparent 25%),
+    radial-gradient(circle at 50% 80%, rgba(179, 136, 255, 0.03), transparent 30%);
+    
+  --status-ok: #10b981;
+  --status-warn: #d97706;
+  --status-crit: #e11d48;
+  
+  --shadow-color: rgba(15, 23, 42, 0.06);
+  --shadow-hover: rgba(15, 23, 42, 0.12);
+  --modal-overlay: rgba(255,255,255,0.6);
 }
 
 * {
@@ -28,20 +86,28 @@
 body {
   font-family: 'Inter', sans-serif;
   background-color: var(--bg-base);
-  background-image: 
-    radial-gradient(circle at 15% 50%, rgba(0, 122, 51, 0.15), transparent 25%),
-    radial-gradient(circle at 85% 30%, rgba(0, 229, 255, 0.1), transparent 25%),
-    radial-gradient(circle at 50% 80%, rgba(179, 136, 255, 0.05), transparent 30%);
-  background-attachment: fixed;
   color: var(--text-primary);
   min-height: 100vh;
   margin: 0;
   overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  position: relative;
+}
+
+/* Optimize background fixed image using a hardware accelerated pseudo-element */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: var(--bg-gradient);
+  z-index: -1;
+  pointer-events: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Outfit', sans-serif;
   font-weight: 600;
+  color: var(--text-title);
 }
 
 /* Animations */
@@ -59,30 +125,34 @@ h1, h2, h3, h4, h5, h6 {
 /* Glassmorphism utility */
 .glass-panel {
   background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(8px); /* Reduced blur to improve GPU rendering */
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--glass-border);
   border-top: 1px solid var(--glass-highlight);
   border-radius: 20px;
   padding: 24px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 8px 32px var(--shadow-color);
+  /* Optimized transition (avoid transitioning 'all') */
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, border-color 0.3s ease;
   position: relative;
   overflow: hidden;
+  /* Hardware acceleration trigger */
+  transform: translateZ(0);
+  will-change: transform, box-shadow;
 }
 
 .glass-panel::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background: linear-gradient(90deg, transparent, var(--glass-highlight), transparent);
   opacity: 0.5;
 }
 
 .glass-panel:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
-  border-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-4px) translateZ(0);
+  box-shadow: 0 12px 48px var(--shadow-hover);
+  border-color: var(--glass-highlight);
 }
 
 /* Scrollbar styling */
@@ -91,12 +161,12 @@ h1, h2, h3, h4, h5, h6 {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(0,0,0,0.2);
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.1);
+  background: var(--glass-border);
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255,255,255,0.2);
+  background: var(--text-secondary);
 }

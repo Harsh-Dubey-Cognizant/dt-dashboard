@@ -1,0 +1,30 @@
+{
+  "columns": [
+    "Joliet, IL",
+    "Stockton, CA",
+    "Savannah, GA",
+    "Briar Creek, PA",
+    "Ridgefield, WA",
+    "Windsor, CT",
+    "Warrensburg, MO",
+    "West Memphis, AR",
+    "Litchfield Park, AZ"
+  ],
+  "inbound": [
+    { "process": "Receive", "statuses": ["Ok", "Critical", "Ok", "Ok", "Warning", "Warning", "N/A", "N/A", "N/A"] },
+    { "process": "Prep", "statuses": ["Ok", "Critical", "Ok", "Ok", "Warning", "Info", "N/A", "N/A", "N/A"] },
+    { "process": "Putaway", "statuses": ["Ok", "Critical", "Ok", "Ok", "Warning", "Info", "N/A", "N/A", "N/A"] },
+    { "process": "Return", "statuses": ["Ok", "Critical", "Ok", "Ok", "N/A", "N/A", "N/A", "N/A", "N/A"] },
+    { "process": "Integration", "statuses": ["Phase 2", "Critical", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2"] }
+  ],
+  "outbound": [
+    { "process": "Wave", "statuses": ["Ok", "Critical", "Ok", "Ok", "Ok", "Ok", "Ok", "Ok", "Ok"] },
+    { "process": "Pick", "statuses": ["Ok", "Critical", "Ok", "Ok", "Ok", "Warning", "Ok", "Ok", "Ok"] },
+    { "process": "Pack", "statuses": ["Ok", "Critical", "Ok", "Ok", "Warning", "Ok", "Ok", "Ok", "Ok"] },
+    { "process": "Ship", "statuses": ["Ok", "Critical", "Ok", "Ok", "Warning", "Ok", "Ok", "Ok", "Ok"] },
+    { "process": "Integration", "statuses": ["Phase 2", "Critical", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2"] }
+  ],
+  "inventory": [
+    { "process": "Cycle Count", "statuses": ["Phase 2", "Critical", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2"] }
+  ]
+}
