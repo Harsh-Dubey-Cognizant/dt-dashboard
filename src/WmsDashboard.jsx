@@ -85,7 +85,7 @@ const WmsDashboard = () => {
       {/* Row Details Modal */}
       {selectedRow && (
         <div className="modal-overlay" onClick={() => setSelectedRow(null)}>
-          <div className="glass-panel widget" onClick={e => e.stopPropagation()} style={{ width: '600px', maxWidth: '90%', animation: 'fadeIn 0.2s ease-out forwards' }}>
+          <div className="glass-panel widget" onClick={e => e.stopPropagation()} style={{ width: '600px', maxWidth: '90%', padding: '32px 40px', animation: 'fadeIn 0.2s ease-out forwards' }}>
             <div className="widget-header">
               <h3 className="widget-title">
                 {selectedRow.groupName} / {selectedRow.process}
