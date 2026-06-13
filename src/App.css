@@ -255,14 +255,12 @@
   align-items: center;
   text-align: center;
   border: 1px solid var(--table-border);
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.2s ease;
   transform: translateZ(0);
-  will-change: transform, border-color;
 }
 
 .metric-card:hover {
-  transform: scale(1.02) translateZ(0);
-  border-color: var(--glass-highlight);
+  background: var(--table-hover);
 }
 
 .metric-value {
@@ -487,6 +485,32 @@
   background: rgba(168, 85, 247, 0.15);
   border-left: 6px solid #a855f7;
   color: #c084fc;
+}
+
+.wms-table .process-inbound {
+  background: rgba(99, 102, 241, 0.05);
+  color: #818cf8;
+}
+.wms-table .process-outbound {
+  background: rgba(14, 165, 233, 0.05);
+  color: #38bdf8;
+}
+.wms-table .process-inventory {
+  background: rgba(168, 85, 247, 0.05);
+  color: #c084fc;
+}
+
+[data-theme="light"] .wms-table .process-inbound {
+  background: rgba(99, 102, 241, 0.1);
+  color: #4f46e5;
+}
+[data-theme="light"] .wms-table .process-outbound {
+  background: rgba(14, 165, 233, 0.1);
+  color: #0284c7;
+}
+[data-theme="light"] .wms-table .process-inventory {
+  background: rgba(168, 85, 247, 0.1);
+  color: #9333ea;
 }
 
 .wms-table .process-cell {
