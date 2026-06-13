@@ -316,10 +316,10 @@
 .modal-overlay .widget {
   width: 100%;
   max-width: 1200px;
-  height: 80vh;
-  max-height: none; /* override widget default */
+  height: auto;
+  max-height: 90vh; /* override widget default */
   box-shadow: 0 20px 60px var(--shadow-hover);
-  border: 1px solid var(--dt-light-green);
+  border: 1px solid var(--glass-border);
 }
 
 /* RESPONSIVE DESIGN */
