@@ -192,7 +192,8 @@
 
 .data-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   white-space: nowrap; /* Keep table cells on one line */
 }
 
@@ -220,6 +221,7 @@
   font-size: 14px;
   color: var(--text-primary);
   border-bottom: 1px solid var(--table-row-border);
+  text-align: center;
 }
 
 .data-table tr:hover td {
