@@ -14,7 +14,7 @@ const WmsStatusIcon = ({ status }) => {
 const WmsDashboard = () => {
   const renderRows = (groupName, rows) => {
     return rows.map((row, idx) => (
-      <tr key={`${groupName}-${idx}`}>
+      <tr key={`${groupName}-${idx}`} className={`row-${groupName.toLowerCase()}`}>
         {idx === 0 && (
           <td rowSpan={rows.length} className={`group-cell group-${groupName.toLowerCase()}`}>
             {groupName}
@@ -43,7 +43,7 @@ const WmsDashboard = () => {
           <table className="data-table wms-table">
             <thead>
               <tr>
-                <th style={{ textAlign: 'center', backgroundColor: 'var(--table-header-bg)', width: '100px' }}>Group</th>
+                <th style={{ textAlign: 'center', backgroundColor: 'var(--table-header-bg)', width: '100px', borderLeft: '6px solid var(--glass-border)' }}>Group</th>
                 <th style={{ textAlign: 'left', backgroundColor: 'var(--table-header-bg)', width: '160px', paddingLeft: '20px' }}>Process</th>
                 {wmsData.columns.map((col, idx) => (
                   <th key={idx} style={{ textAlign: 'center' }}>

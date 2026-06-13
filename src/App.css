@@ -487,29 +487,45 @@
   color: #c084fc;
 }
 
-.wms-table .process-inbound {
-  background: rgba(99, 102, 241, 0.05);
+.wms-table .row-inbound {
+  background: rgba(99, 102, 241, 0.03);
+}
+.wms-table .row-inbound .process-cell {
   color: #818cf8;
 }
-.wms-table .process-outbound {
-  background: rgba(14, 165, 233, 0.05);
+
+.wms-table .row-outbound {
+  background: rgba(14, 165, 233, 0.03);
+}
+.wms-table .row-outbound .process-cell {
   color: #38bdf8;
 }
-.wms-table .process-inventory {
-  background: rgba(168, 85, 247, 0.05);
+
+.wms-table .row-inventory {
+  background: rgba(168, 85, 247, 0.03);
+}
+.wms-table .row-inventory .process-cell {
   color: #c084fc;
 }
 
-[data-theme="light"] .wms-table .process-inbound {
-  background: rgba(99, 102, 241, 0.1);
+[data-theme="light"] .wms-table .row-inbound {
+  background: rgba(99, 102, 241, 0.08);
+}
+[data-theme="light"] .wms-table .row-inbound .process-cell {
   color: #4f46e5;
 }
-[data-theme="light"] .wms-table .process-outbound {
-  background: rgba(14, 165, 233, 0.1);
+
+[data-theme="light"] .wms-table .row-outbound {
+  background: rgba(14, 165, 233, 0.08);
+}
+[data-theme="light"] .wms-table .row-outbound .process-cell {
   color: #0284c7;
 }
-[data-theme="light"] .wms-table .process-inventory {
-  background: rgba(168, 85, 247, 0.1);
+
+[data-theme="light"] .wms-table .row-inventory {
+  background: rgba(168, 85, 247, 0.08);
+}
+[data-theme="light"] .wms-table .row-inventory .process-cell {
   color: #9333ea;
 }
 
