@@ -212,6 +212,7 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   border-bottom: 1px solid var(--table-border);
+  font-weight: 700;
 }
 
 .data-table td {
@@ -508,25 +509,33 @@
   color: #c084fc;
 }
 
+[data-theme="light"] .wms-table .group-cell {
+  background: rgba(0,0,0,0.03);
+  color: #0f172a;
+}
+
 [data-theme="light"] .wms-table .row-inbound {
-  background: rgba(99, 102, 241, 0.08);
+  background: rgba(79, 70, 229, 0.06);
 }
 [data-theme="light"] .wms-table .row-inbound .process-cell {
-  color: #4f46e5;
+  color: #3730a3;
+  font-weight: 600;
 }
 
 [data-theme="light"] .wms-table .row-outbound {
-  background: rgba(14, 165, 233, 0.08);
+  background: rgba(2, 132, 199, 0.06);
 }
 [data-theme="light"] .wms-table .row-outbound .process-cell {
-  color: #0284c7;
+  color: #0369a1;
+  font-weight: 600;
 }
 
 [data-theme="light"] .wms-table .row-inventory {
-  background: rgba(168, 85, 247, 0.08);
+  background: rgba(147, 51, 234, 0.06);
 }
 [data-theme="light"] .wms-table .row-inventory .process-cell {
-  color: #9333ea;
+  color: #7e22ce;
+  font-weight: 600;
 }
 
 .wms-table .process-cell {

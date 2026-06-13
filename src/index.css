@@ -46,21 +46,21 @@
   --dt-light-green: #007a33; /* Darker for legibility on light */
   
   --text-primary: #1e293b;
-  --text-secondary: #64748b;
+  --text-secondary: #475569; /* Darker for contrast */
   --text-title: #0f172a;
   
-  --glass-bg: rgba(255, 255, 255, 0.6);
-  --glass-border: rgba(0, 0, 0, 0.05);
-  --glass-highlight: rgba(255, 255, 255, 0.8);
-  --header-bg: rgba(255, 255, 255, 0.7);
+  --glass-bg: rgba(255, 255, 255, 0.8); /* Less transparent */
+  --glass-border: rgba(0, 0, 0, 0.1); /* Darker border */
+  --glass-highlight: rgba(255, 255, 255, 0.9);
+  --header-bg: rgba(255, 255, 255, 0.85);
   
-  --table-bg: rgba(255,255,255,0.6);
-  --table-border: rgba(0,0,0,0.04);
-  --table-row-border: rgba(0,0,0,0.03);
-  --table-hover: rgba(0,0,0,0.02);
-  --table-header-bg: rgba(248, 250, 252, 0.95);
+  --table-bg: rgba(255,255,255,0.8);
+  --table-border: rgba(0,0,0,0.08); /* More visible borders */
+  --table-row-border: rgba(0,0,0,0.06);
+  --table-hover: rgba(0,0,0,0.04);
+  --table-header-bg: rgba(241, 245, 249, 1); /* Solid header bg */
   
-  --metric-bg: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(241,245,249,0.5) 100%);
+  --metric-bg: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(241,245,249,0.8) 100%);
   --brand-gradient: linear-gradient(135deg, #0f172a 0%, #007a33 100%);
   
   --bg-gradient: 
