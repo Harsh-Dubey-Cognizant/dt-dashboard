@@ -1,4 +1,12 @@
 {
+  "legend": [
+    { "status": "Ok", "description": "Operational / healthy (green)" },
+    { "status": "Critical", "description": "Critical / down (red)" },
+    { "status": "Warning", "description": "Warning / degraded (alert triangle)" },
+    { "status": "Info", "description": "Informational / advisory (blue)" },
+    { "status": "N/A", "description": "Not applicable - capability not present at this DC" },
+    { "status": "Phase 2", "description": "Planned for Phase 2 - not yet live" }
+  ],
   "columns": [
     "Joliet, IL",
     "Stockton, CA",
@@ -11,20 +19,20 @@
     "Litchfield Park, AZ"
   ],
   "inbound": [
-    { "process": "Receive", "statuses": ["Ok", "Critical", "Ok", "Ok", "Warning", "Warning", "N/A", "N/A", "N/A"] },
-    { "process": "Prep", "statuses": ["Ok", "Critical", "Ok", "Ok", "Warning", "Info", "N/A", "N/A", "N/A"] },
-    { "process": "Putaway", "statuses": ["Ok", "Critical", "Ok", "Ok", "Warning", "Info", "N/A", "N/A", "N/A"] },
-    { "process": "Return", "statuses": ["Ok", "Critical", "Ok", "Ok", "N/A", "N/A", "N/A", "N/A", "N/A"] },
-    { "process": "Integration", "statuses": ["Phase 2", "Critical", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2"] }
+    { "id": "in-recv", "process": "Receive", "description": "Log incoming shipments and verify against purchase orders.", "statuses": ["Ok", "Critical", "Ok", "Ok", "Warning", "Warning", "N/A", "N/A", "N/A"] },
+    { "id": "in-prep", "process": "Prep", "description": "Prepare received goods for storage (ticketing, unboxing).", "statuses": ["Ok", "Critical", "Ok", "Ok", "Warning", "Info", "N/A", "N/A", "N/A"] },
+    { "id": "in-puta", "process": "Putaway", "description": "Move goods from staging to their designated storage locations.", "statuses": ["Ok", "Critical", "Ok", "Ok", "Warning", "Info", "N/A", "N/A", "N/A"] },
+    { "id": "in-ret", "process": "Return", "description": "Handle store returns and reverse logistics.", "statuses": ["Ok", "Critical", "Ok", "Ok", "N/A", "N/A", "N/A", "N/A", "N/A"] },
+    { "id": "in-int", "process": "Integration", "description": "System data integration for inbound operations.", "statuses": ["Phase 2", "Critical", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2"] }
   ],
   "outbound": [
-    { "process": "Wave", "statuses": ["Ok", "Critical", "Ok", "Ok", "Ok", "Ok", "Ok", "Ok", "Ok"] },
-    { "process": "Pick", "statuses": ["Ok", "Critical", "Ok", "Ok", "Ok", "Warning", "Ok", "Ok", "Ok"] },
-    { "process": "Pack", "statuses": ["Ok", "Critical", "Ok", "Ok", "Warning", "Ok", "Ok", "Ok", "Ok"] },
-    { "process": "Ship", "statuses": ["Ok", "Critical", "Ok", "Ok", "Warning", "Ok", "Ok", "Ok", "Ok"] },
-    { "process": "Integration", "statuses": ["Phase 2", "Critical", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2"] }
+    { "id": "out-wave", "process": "Wave", "description": "Group orders for efficient picking operations.", "statuses": ["Ok", "Critical", "Ok", "Ok", "Ok", "Ok", "Ok", "Ok", "Ok"] },
+    { "id": "out-pick", "process": "Pick", "description": "Retrieve items from storage locations to fulfill orders.", "statuses": ["Ok", "Critical", "Ok", "Ok", "Ok", "Warning", "Ok", "Ok", "Ok"] },
+    { "id": "out-pack", "process": "Pack", "description": "Package picked items into shipping containers.", "statuses": ["Ok", "Critical", "Ok", "Ok", "Warning", "Ok", "Ok", "Ok", "Ok"] },
+    { "id": "out-ship", "process": "Ship", "description": "Load packed containers onto outbound trailers.", "statuses": ["Ok", "Critical", "Ok", "Ok", "Warning", "Ok", "Ok", "Ok", "Ok"] },
+    { "id": "out-int", "process": "Integration", "description": "System data integration for outbound operations.", "statuses": ["Phase 2", "Critical", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2"] }
   ],
   "inventory": [
-    { "process": "Cycle Count", "statuses": ["Phase 2", "Critical", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2"] }
+    { "id": "inv-cc", "process": "Cycle Count", "description": "Periodic auditing of inventory on hand.", "statuses": ["Phase 2", "Critical", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2"] }
   ]
 }

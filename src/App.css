@@ -543,6 +543,19 @@
   font-weight: 500;
 }
 
+.clickable-row {
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.clickable-row:hover {
+  filter: brightness(1.2);
+}
+
+[data-theme="light"] .clickable-row:hover {
+  filter: brightness(0.95);
+}
+
 .wms-status-cell {
   min-width: 80px;
 }
