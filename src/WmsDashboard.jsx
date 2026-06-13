@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import wmsData from './wmsData.json';
+import wmsData from '../db/wmsData.json';
 
 const WmsStatusIcon = ({ status }) => {
   if (status === 'Ok') return <div className="status-dot ok" title="Operational"></div>;

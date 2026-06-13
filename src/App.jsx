@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import dashboardData from './data.json';
+import dashboardData from '../db/data.json';
 import WmsDashboard from './WmsDashboard';
 
 // Simple Inline SVG Icons
