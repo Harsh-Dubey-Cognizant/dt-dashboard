@@ -1,38 +1,446 @@
 {
   "legend": [
-    { "status": "Ok", "description": "Operational / healthy (green)" },
-    { "status": "Critical", "description": "Critical / down (red)" },
-    { "status": "Warning", "description": "Warning / degraded (alert triangle)" },
-    { "status": "Info", "description": "Informational / advisory (blue)" },
-    { "status": "N/A", "description": "Not applicable - capability not present at this DC" },
-    { "status": "Phase 2", "description": "Planned for Phase 2 - not yet live" }
+    { "status": "Ok",       "description": "Operational / healthy" },
+    { "status": "Critical", "description": "Critical / down" },
+    { "status": "Warning",  "description": "Warning / degraded" },
+    { "status": "Info",     "description": "Informational / advisory" },
+    { "status": "N/A",      "description": "Not applicable at this DC" },
+    { "status": "Phase 2",  "description": "Planned for Phase 2 – not yet live" }
   ],
   "columns": [
-    "Joliet, IL",
-    "Stockton, CA",
-    "Savannah, GA",
-    "Briar Creek, PA",
-    "Ridgefield, WA",
-    "Windsor, CT",
-    "Warrensburg, MO",
-    "West Memphis, AR",
-    "Litchfield Park, AZ"
+    "DC 3 – Joliet, IL", "DC 4 – Stockton, CA", "DC 5 – Savannah, GA", "DC 6 – Briar Creek, PA",
+    "DC 7 – Ridgefield, WA", "DC 10 – Windsor, CT", "DC 14 – Warrensburg, MO", "DC 18 – West Memphis, AR", "DC 20 – Litchfield Park, AZ"
   ],
   "inbound": [
-    { "id": "in-recv", "process": "Receive", "description": "Log incoming shipments and verify against purchase orders.", "statuses": ["Ok", "Critical", "Ok", "Ok", "Warning", "Warning", "N/A", "N/A", "N/A"] },
-    { "id": "in-prep", "process": "Prep", "description": "Prepare received goods for storage (ticketing, unboxing).", "statuses": ["Ok", "Critical", "Ok", "Ok", "Warning", "Info", "N/A", "N/A", "N/A"] },
-    { "id": "in-puta", "process": "Putaway", "description": "Move goods from staging to their designated storage locations.", "statuses": ["Ok", "Critical", "Ok", "Ok", "Warning", "Info", "N/A", "N/A", "N/A"] },
-    { "id": "in-ret", "process": "Return", "description": "Handle store returns and reverse logistics.", "statuses": ["Ok", "Critical", "Ok", "Ok", "N/A", "N/A", "N/A", "N/A", "N/A"] },
-    { "id": "in-int", "process": "Integration", "description": "System data integration for inbound operations.", "statuses": ["Phase 2", "Critical", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2"] }
+    {
+      "id": "in-recv",
+      "process": "Receive",
+      "description": "Log incoming shipments and verify against purchase orders.",
+      "statuses": ["Ok","Critical","Ok","Ok","Warning","Warning","N/A","N/A",""],
+      "kpiDetail": {
+        "kpiId": 1,
+        "kpiName": "DC Throughput – System (OMS, WMS, WCS) Performance",
+        "primaryKPI": "System Uptime %",
+        "secondaryKPI": "Latency Monitoring",
+        "monitoringItem": "Servers connected with good performance",
+        "layer": "Layer 1 – IT Infrastructure Health",
+        "priority": "Critical",
+        "dcData": [
+          {
+            "dc": "Joliet, IL", "code": "DC3", "wmsType": "Catalyst", "status": "ok",
+            "metrics": [
+              { "label": "CPU Utilization",  "value": "42%",    "status": "ok" },
+              { "label": "Memory Usage",     "value": "68%",    "status": "warn" },
+              { "label": "Disk I/O",         "value": "54%",    "status": "ok" },
+              { "label": "Load Average",     "value": "2.4",    "status": "ok" },
+              { "label": "System Uptime",    "value": "99.94%", "status": "ok" },
+              { "label": "ASP Usage",        "value": "61%",    "status": "ok" }
+            ]
+          },
+          {
+            "dc": "Stockton, CA", "code": "DC4", "wmsType": "Catalyst", "status": "crit",
+            "metrics": [
+              { "label": "CPU Utilization",  "value": "91%",    "status": "crit" },
+              { "label": "Memory Usage",     "value": "88%",    "status": "crit" },
+              { "label": "Disk I/O",         "value": "95%",    "status": "crit" },
+              { "label": "Load Average",     "value": "8.2",    "status": "crit" },
+              { "label": "System Uptime",    "value": "72.1%",  "status": "crit" },
+              { "label": "ASP Usage",        "value": "94%",    "status": "crit" }
+            ]
+          },
+          {
+            "dc": "Savannah, GA", "code": "DC5", "wmsType": "Catalyst", "status": "ok",
+            "metrics": [
+              { "label": "CPU Utilization",  "value": "38%",    "status": "ok" },
+              { "label": "Memory Usage",     "value": "61%",    "status": "ok" },
+              { "label": "Disk I/O",         "value": "47%",    "status": "ok" },
+              { "label": "Load Average",     "value": "1.9",    "status": "ok" },
+              { "label": "System Uptime",    "value": "99.98%", "status": "ok" },
+              { "label": "ASP Usage",        "value": "58%",    "status": "ok" }
+            ]
+          },
+          {
+            "dc": "Briar Creek, PA", "code": "DC6", "wmsType": "Catalyst", "status": "ok",
+            "metrics": [
+              { "label": "CPU Utilization",  "value": "41%",    "status": "ok" },
+              { "label": "Memory Usage",     "value": "64%",    "status": "ok" },
+              { "label": "Disk I/O",         "value": "51%",    "status": "ok" },
+              { "label": "Load Average",     "value": "2.1",    "status": "ok" },
+              { "label": "System Uptime",    "value": "99.91%", "status": "ok" },
+              { "label": "ASP Usage",        "value": "63%",    "status": "ok" }
+            ]
+          },
+          {
+            "dc": "Ridgefield, WA", "code": "DC7", "wmsType": "MAWM", "status": "warn",
+            "metrics": [
+              { "label": "CPU Utilization",  "value": "62%",    "status": "warn" },
+              { "label": "Memory Usage",     "value": "74%",    "status": "warn" },
+              { "label": "Disk I/O",         "value": "81%",    "status": "warn" },
+              { "label": "Load Average",     "value": "4.1",    "status": "warn" },
+              { "label": "System Uptime",    "value": "97.4%",  "status": "warn" },
+              { "label": "ASP Usage",        "value": "N/A (SAAS)", "status": "ok" }
+            ]
+          },
+          {
+            "dc": "Windsor, CT", "code": "DC10", "wmsType": "MAWM", "status": "warn",
+            "metrics": [
+              { "label": "CPU Utilization",  "value": "58%",    "status": "warn" },
+              { "label": "Memory Usage",     "value": "71%",    "status": "warn" },
+              { "label": "Disk I/O",         "value": "76%",    "status": "ok" },
+              { "label": "Load Average",     "value": "3.8",    "status": "warn" },
+              { "label": "System Uptime",    "value": "98.2%",  "status": "warn" },
+              { "label": "ASP Usage",        "value": "N/A (SAAS)", "status": "ok" }
+            ]
+          },
+          { "dc": "Warrensburg, MO",    "code": "DC14", "status": "na",     "metrics": [] },
+          { "dc": "West Memphis, AR",   "code": "DC18", "status": "na",     "metrics": [] },
+          { "dc": "Litchfield Park, AZ","code": "DC20", "status": "na",     "metrics": [] }
+        ]
+      }
+    },
+    {
+      "id": "in-prep",
+      "process": "Prep",
+      "description": "Prepare received goods for storage (ticketing, unboxing).",
+      "statuses": ["Ok","Critical","Ok","Ok","Warning","Info","N/A","N/A",""]
+    },
+    {
+      "id": "in-puta",
+      "process": "Putaway",
+      "description": "Move goods from staging to their designated storage locations.",
+      "statuses": ["Ok","Critical","Ok","Ok","Warning","Info","N/A","N/A",""]
+    },
+    {
+      "id": "in-ret",
+      "process": "Return",
+      "description": "Handle store returns and reverse logistics.",
+      "statuses": ["Ok","Critical","Ok","Ok","N/A","N/A","N/A","N/A",""]
+    },
+    {
+      "id": "in-int",
+      "process": "Integration",
+      "description": "System data integration for inbound operations — Order Download to WMS/MATM.",
+      "statuses": ["Phase 2","Critical","Phase 2","Phase 2","Phase 2","Phase 2","Phase 2","Phase 2",""],
+      "kpiDetail": {
+        "kpiId": 3,
+        "kpiName": "Order Fill Rate – Order Download",
+        "primaryKPI": "Job Run Completion %",
+        "secondaryKPI": "Process Success Rate",
+        "monitoringItem": "Order download completed successfully from MMS → MATM → WMS",
+        "layer": "Layer 2 – Critical Paths / Process Flow",
+        "priority": "Critical",
+        "dcData": [
+          {
+            "dc": "Joliet, IL", "code": "DC3", "wmsType": "Catalyst", "status": "ok",
+            "metrics": [
+              { "label": "Orders → MATM",          "value": "4,820",    "status": "ok" },
+              { "label": "Route Planning (MATM)",  "value": "SLA Met",  "status": "ok" },
+              { "label": "Batch Completion Time",  "value": "12 min",   "status": "ok" },
+              { "label": "Orders Ready (Alloc.)",  "value": "4,780",    "status": "ok" },
+              { "label": "DCC_LOAD_MMS_TRANSFER",  "value": "Complete", "status": "ok" },
+              { "label": "DCC_MATM_OBND_ORD_EXT",  "value": "Complete", "status": "ok" }
+            ]
+          },
+          {
+            "dc": "Stockton, CA", "code": "DC4", "wmsType": "Catalyst", "status": "crit",
+            "metrics": [
+              { "label": "Orders → MATM",          "value": "0",         "status": "crit" },
+              { "label": "Route Planning (MATM)",  "value": "Failed",    "status": "crit" },
+              { "label": "Batch Completion Time",  "value": "N/A",       "status": "crit" },
+              { "label": "Orders Ready (Alloc.)",  "value": "0",         "status": "crit" },
+              { "label": "DCC_LOAD_MMS_TRANSFER",  "value": "Failed",    "status": "crit" },
+              { "label": "DCC_MATM_OBND_ORD_EXT",  "value": "Failed",    "status": "crit" }
+            ]
+          },
+          {
+            "dc": "Savannah, GA", "code": "DC5", "wmsType": "Catalyst", "status": "ok",
+            "metrics": [
+              { "label": "Orders → MATM",          "value": "3,140",    "status": "ok" },
+              { "label": "Route Planning (MATM)",  "value": "SLA Met",  "status": "ok" },
+              { "label": "Batch Completion Time",  "value": "14 min",   "status": "ok" },
+              { "label": "Orders Ready (Alloc.)",  "value": "3,120",    "status": "ok" },
+              { "label": "DCC_LOAD_MMS_TRANSFER",  "value": "Complete", "status": "ok" },
+              { "label": "DCC_MATM_OBND_ORD_EXT",  "value": "Complete", "status": "ok" }
+            ]
+          },
+          {
+            "dc": "Briar Creek, PA", "code": "DC6", "wmsType": "Catalyst", "status": "ok",
+            "metrics": [
+              { "label": "Orders → MATM",          "value": "3,840",    "status": "ok" },
+              { "label": "Route Planning (MATM)",  "value": "SLA Met",  "status": "ok" },
+              { "label": "Batch Completion Time",  "value": "11 min",   "status": "ok" },
+              { "label": "Orders Ready (Alloc.)",  "value": "3,810",    "status": "ok" },
+              { "label": "DCC_LOAD_MMS_TRANSFER",  "value": "Complete", "status": "ok" },
+              { "label": "DCC_MATM_OBND_ORD_EXT",  "value": "Complete", "status": "ok" }
+            ]
+          },
+          {
+            "dc": "Ridgefield, WA", "code": "DC7", "wmsType": "MAWM", "status": "warn",
+            "metrics": [
+              { "label": "Orders → MATM",          "value": "2,480",       "status": "warn" },
+              { "label": "Route Planning (MATM)",  "value": "SLA Warning", "status": "warn" },
+              { "label": "Batch Completion Time",  "value": "28 min",      "status": "warn" },
+              { "label": "Orders Ready (Alloc.)",  "value": "2,240",       "status": "warn" },
+              { "label": "Monitoring Dashboard",   "value": "Delayed",     "status": "warn" },
+              { "label": "Interface Channels",     "value": "Degraded",    "status": "warn" }
+            ]
+          },
+          {
+            "dc": "Windsor, CT", "code": "DC10", "wmsType": "MAWM", "status": "warn",
+            "metrics": [
+              { "label": "Orders → MATM",          "value": "1,920",       "status": "warn" },
+              { "label": "Route Planning (MATM)",  "value": "SLA Warning", "status": "warn" },
+              { "label": "Batch Completion Time",  "value": "22 min",      "status": "warn" },
+              { "label": "Orders Ready (Alloc.)",  "value": "1,890",       "status": "ok" },
+              { "label": "Monitoring Dashboard",   "value": "Delayed",     "status": "warn" },
+              { "label": "Interface Channels",     "value": "OK",          "status": "ok" }
+            ]
+          },
+          { "dc": "Warrensburg, MO",    "code": "DC14", "status": "phase2", "metrics": [] },
+          { "dc": "West Memphis, AR",   "code": "DC18", "status": "phase2", "metrics": [] },
+          { "dc": "Litchfield Park, AZ","code": "DC20", "status": "na",     "metrics": [] }
+        ]
+      }
+    }
   ],
   "outbound": [
-    { "id": "out-wave", "process": "Wave", "description": "Group orders for efficient picking operations.", "statuses": ["Ok", "Critical", "Ok", "Ok", "Ok", "Ok", "Ok", "Ok", "Ok"] },
-    { "id": "out-pick", "process": "Pick", "description": "Retrieve items from storage locations to fulfill orders.", "statuses": ["Ok", "Critical", "Ok", "Ok", "Ok", "Warning", "Ok", "Ok", "Ok"] },
-    { "id": "out-pack", "process": "Pack", "description": "Package picked items into shipping containers.", "statuses": ["Ok", "Critical", "Ok", "Ok", "Warning", "Ok", "Ok", "Ok", "Ok"] },
-    { "id": "out-ship", "process": "Ship", "description": "Load packed containers onto outbound trailers.", "statuses": ["Ok", "Critical", "Ok", "Ok", "Warning", "Ok", "Ok", "Ok", "Ok"] },
-    { "id": "out-int", "process": "Integration", "description": "System data integration for outbound operations.", "statuses": ["Phase 2", "Critical", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2"] }
+    {
+      "id": "out-wave",
+      "process": "Wave",
+      "description": "Group orders for efficient picking operations.",
+      "statuses": ["Ok","Critical","Ok","Ok","Ok","Ok","Ok","Ok",""],
+      "kpiDetail": {
+        "kpiId": 2,
+        "kpiName": "DC Throughput – Database & Channels",
+        "primaryKPI": "DB Load %",
+        "secondaryKPI": "Channel Availability %",
+        "monitoringItem": "DB health – locks, index, performance; Interface channels up",
+        "layer": "Layer 1 – IT Infrastructure Health",
+        "priority": "High",
+        "dcData": [
+          {
+            "dc": "Joliet, IL", "code": "DC3", "wmsType": "Catalyst", "status": "ok",
+            "metrics": [
+              { "label": "Active Sessions",   "value": "124",   "status": "ok" },
+              { "label": "Slow Queries",      "value": "3",     "status": "ok" },
+              { "label": "Tablespace Usage",  "value": "62%",   "status": "ok" },
+              { "label": "Lock Wait Time",    "value": "2 ms",  "status": "ok" },
+              { "label": "DB Load %",         "value": "38%",   "status": "ok" },
+              { "label": "Index Health",      "value": "Good",  "status": "ok" }
+            ]
+          },
+          {
+            "dc": "Stockton, CA", "code": "DC4", "wmsType": "Catalyst", "status": "crit",
+            "metrics": [
+              { "label": "Active Sessions",   "value": "312",    "status": "crit" },
+              { "label": "Slow Queries",      "value": "48",     "status": "crit" },
+              { "label": "Tablespace Usage",  "value": "91%",    "status": "crit" },
+              { "label": "Lock Wait Time",    "value": "840 ms", "status": "crit" },
+              { "label": "DB Load %",         "value": "89%",    "status": "crit" },
+              { "label": "Index Health",      "value": "Corrupt","status": "crit" }
+            ]
+          },
+          {
+            "dc": "Savannah, GA", "code": "DC5", "wmsType": "Catalyst", "status": "ok",
+            "metrics": [
+              { "label": "Active Sessions",   "value": "108",  "status": "ok" },
+              { "label": "Slow Queries",      "value": "2",    "status": "ok" },
+              { "label": "Tablespace Usage",  "value": "58%",  "status": "ok" },
+              { "label": "Lock Wait Time",    "value": "1 ms", "status": "ok" },
+              { "label": "DB Load %",         "value": "34%",  "status": "ok" },
+              { "label": "Index Health",      "value": "Good", "status": "ok" }
+            ]
+          },
+          {
+            "dc": "Briar Creek, PA", "code": "DC6", "wmsType": "Catalyst", "status": "ok",
+            "metrics": [
+              { "label": "Active Sessions",   "value": "115",  "status": "ok" },
+              { "label": "Slow Queries",      "value": "4",    "status": "ok" },
+              { "label": "Tablespace Usage",  "value": "64%",  "status": "ok" },
+              { "label": "Lock Wait Time",    "value": "3 ms", "status": "ok" },
+              { "label": "DB Load %",         "value": "41%",  "status": "ok" },
+              { "label": "Index Health",      "value": "Good", "status": "ok" }
+            ]
+          },
+          {
+            "dc": "Ridgefield, WA", "code": "DC7", "wmsType": "MAWM", "status": "ok",
+            "metrics": [
+              { "label": "Active Sessions",   "value": "142",   "status": "ok" },
+              { "label": "Slow Queries",      "value": "6",     "status": "ok" },
+              { "label": "Tablespace Usage",  "value": "68%",   "status": "ok" },
+              { "label": "Lock Wait Time",    "value": "8 ms",  "status": "ok" },
+              { "label": "DB Load %",         "value": "46%",   "status": "ok" },
+              { "label": "Index Health",      "value": "Good",  "status": "ok" }
+            ]
+          },
+          {
+            "dc": "Windsor, CT", "code": "DC10", "wmsType": "MAWM", "status": "ok",
+            "metrics": [
+              { "label": "Active Sessions",   "value": "162",   "status": "ok" },
+              { "label": "Slow Queries",      "value": "9",     "status": "ok" },
+              { "label": "Tablespace Usage",  "value": "71%",   "status": "ok" },
+              { "label": "Lock Wait Time",    "value": "12 ms", "status": "ok" },
+              { "label": "DB Load %",         "value": "52%",   "status": "warn" },
+              { "label": "Index Health",      "value": "Good",  "status": "ok" }
+            ]
+          },
+          {
+            "dc": "Warrensburg, MO", "code": "DC14", "wmsType": "Catalyst", "status": "ok",
+            "metrics": [
+              { "label": "Active Sessions",   "value": "98",   "status": "ok" },
+              { "label": "Slow Queries",      "value": "1",    "status": "ok" },
+              { "label": "Tablespace Usage",  "value": "54%",  "status": "ok" },
+              { "label": "Lock Wait Time",    "value": "1 ms", "status": "ok" },
+              { "label": "DB Load %",         "value": "31%",  "status": "ok" },
+              { "label": "Index Health",      "value": "Good", "status": "ok" }
+            ]
+          },
+          {
+            "dc": "West Memphis, AR", "code": "DC18", "wmsType": "Catalyst", "status": "ok",
+            "metrics": [
+              { "label": "Active Sessions",   "value": "104",  "status": "ok" },
+              { "label": "Slow Queries",      "value": "2",    "status": "ok" },
+              { "label": "Tablespace Usage",  "value": "57%",  "status": "ok" },
+              { "label": "Lock Wait Time",    "value": "2 ms", "status": "ok" },
+              { "label": "DB Load %",         "value": "33%",  "status": "ok" },
+              { "label": "Index Health",      "value": "Good", "status": "ok" }
+            ]
+          },
+          { "dc": "Litchfield Park, AZ", "code": "DC20", "status": "na", "metrics": [] }
+        ]
+      }
+    },
+    {
+      "id": "out-pick",
+      "process": "Pick",
+      "description": "Retrieve items from storage locations to fulfill orders.",
+      "statuses": ["Ok","Critical","Ok","Ok","Ok","Warning","Ok","Ok",""],
+      "kpiDetail": {
+        "kpiId": 15,
+        "kpiName": "Picking Systems Availability",
+        "primaryKPI": "Picking App Uptime %",
+        "secondaryKPI": "Response Time",
+        "monitoringItem": "Picking applications availability – Voice Pick, RF, Scanner devices",
+        "layer": "Layer 1 – IT Infrastructure Health",
+        "priority": "Critical",
+        "dcData": [
+          {
+            "dc": "Joliet, IL", "code": "DC3", "wmsType": "Catalyst", "status": "ok",
+            "metrics": [
+              { "label": "Voice Pick Server",  "value": "Up",      "status": "ok" },
+              { "label": "RF Subsystem",       "value": "Up",      "status": "ok" },
+              { "label": "Scanner Uptime",     "value": "99.2%",   "status": "ok" },
+              { "label": "Avg Response Time",  "value": "180 ms",  "status": "ok" },
+              { "label": "EODC600 Job",        "value": "N/A",     "status": "ok" },
+              { "label": "Pick Director",      "value": "Online",  "status": "ok" }
+            ]
+          },
+          {
+            "dc": "Stockton, CA", "code": "DC4", "wmsType": "Catalyst", "status": "crit",
+            "metrics": [
+              { "label": "Voice Pick Server",  "value": "Down",    "status": "crit" },
+              { "label": "RF Subsystem",       "value": "Down",    "status": "crit" },
+              { "label": "Scanner Uptime",     "value": "0%",      "status": "crit" },
+              { "label": "Avg Response Time",  "value": "Timeout", "status": "crit" },
+              { "label": "EODC600 Job",        "value": "N/A",     "status": "ok" },
+              { "label": "Pick Director",      "value": "Offline", "status": "crit" }
+            ]
+          },
+          {
+            "dc": "Savannah, GA", "code": "DC5", "wmsType": "Catalyst", "status": "ok",
+            "metrics": [
+              { "label": "Voice Pick Server",  "value": "Up",      "status": "ok" },
+              { "label": "RF Subsystem",       "value": "Up",      "status": "ok" },
+              { "label": "Scanner Uptime",     "value": "99.6%",   "status": "ok" },
+              { "label": "Avg Response Time",  "value": "165 ms",  "status": "ok" },
+              { "label": "EODC600 Job",        "value": "N/A",     "status": "ok" },
+              { "label": "Pick Director",      "value": "Online",  "status": "ok" }
+            ]
+          },
+          {
+            "dc": "Briar Creek, PA", "code": "DC6", "wmsType": "Catalyst", "status": "ok",
+            "metrics": [
+              { "label": "Voice Pick Server",  "value": "Up",      "status": "ok" },
+              { "label": "RF Subsystem",       "value": "Up",      "status": "ok" },
+              { "label": "Scanner Uptime",     "value": "99.4%",   "status": "ok" },
+              { "label": "Avg Response Time",  "value": "172 ms",  "status": "ok" },
+              { "label": "EODC600 Job",        "value": "N/A",     "status": "ok" },
+              { "label": "Pick Director",      "value": "Online",  "status": "ok" }
+            ]
+          },
+          {
+            "dc": "Ridgefield, WA", "code": "DC7", "wmsType": "MAWM", "status": "ok",
+            "metrics": [
+              { "label": "Voice Pick Server",  "value": "Up (Vocollect)", "status": "ok" },
+              { "label": "RF Subsystem",       "value": "Up",             "status": "ok" },
+              { "label": "Scanner Uptime",     "value": "97.8%",          "status": "warn" },
+              { "label": "Avg Response Time",  "value": "340 ms",         "status": "warn" },
+              { "label": "EODC600 Job",        "value": "N/A (SAAS)",     "status": "ok" },
+              { "label": "Voice Console",      "value": "OK",             "status": "ok" }
+            ]
+          },
+          {
+            "dc": "Windsor, CT", "code": "DC10", "wmsType": "MAWM", "status": "warn",
+            "metrics": [
+              { "label": "Voice Pick Server",  "value": "Up (Vocollect)", "status": "ok" },
+              { "label": "RF Subsystem",       "value": "Degraded",       "status": "warn" },
+              { "label": "Scanner Uptime",     "value": "94.8%",          "status": "warn" },
+              { "label": "Avg Response Time",  "value": "480 ms",         "status": "warn" },
+              { "label": "EODC600 Job",        "value": "N/A (SAAS)",     "status": "ok" },
+              { "label": "Voice Console",      "value": "OK",             "status": "ok" }
+            ]
+          },
+          {
+            "dc": "Warrensburg, MO", "code": "DC14", "wmsType": "WCSS", "status": "ok",
+            "metrics": [
+              { "label": "Voice Pick Server",  "value": "Up",      "status": "ok" },
+              { "label": "RF Subsystem",       "value": "Up",      "status": "ok" },
+              { "label": "Scanner Uptime",     "value": "99.1%",   "status": "ok" },
+              { "label": "Avg Response Time",  "value": "210 ms",  "status": "ok" },
+              { "label": "EODC600 Job",        "value": "Complete (03:58 AM)", "status": "ok" },
+              { "label": "AS400 SLA",          "value": "Met",     "status": "ok" }
+            ]
+          },
+          {
+            "dc": "West Memphis, AR", "code": "DC18", "wmsType": "WCSS", "status": "ok",
+            "metrics": [
+              { "label": "Voice Pick Server",  "value": "Up",      "status": "ok" },
+              { "label": "RF Subsystem",       "value": "Up",      "status": "ok" },
+              { "label": "Scanner Uptime",     "value": "98.9%",   "status": "ok" },
+              { "label": "Avg Response Time",  "value": "225 ms",  "status": "ok" },
+              { "label": "EODC600 Job",        "value": "Complete (04:02 AM)", "status": "ok" },
+              { "label": "AS400 SLA",          "value": "Met",     "status": "ok" }
+            ]
+          },
+          { "dc": "Litchfield Park, AZ", "code": "DC20", "status": "na", "metrics": [] }
+        ]
+      }
+    },
+    {
+      "id": "out-pack",
+      "process": "Pack",
+      "description": "Package picked items into shipping containers.",
+      "statuses": ["Ok","Critical","Ok","Ok","Warning","Ok","Ok","Ok",""]
+    },
+    {
+      "id": "out-ship",
+      "process": "Ship",
+      "description": "Load packed containers onto outbound trailers.",
+      "statuses": ["Ok","Critical","Ok","Ok","Warning","Ok","Ok","Ok",""]
+    },
+    {
+      "id": "out-int",
+      "process": "Integration",
+      "description": "System data integration for outbound operations.",
+      "statuses": ["Phase 2","Critical","Phase 2","Phase 2","Phase 2","Phase 2","Phase 2","Phase 2",""]
+    }
   ],
   "inventory": [
-    { "id": "inv-cc", "process": "Cycle Count", "description": "Periodic auditing of inventory on hand.", "statuses": ["Phase 2", "Critical", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2", "Phase 2"] }
+    {
+      "id": "inv-cc",
+      "process": "Cycle Count",
+      "description": "Periodic auditing of inventory on hand.",
+      "statuses": ["Phase 2","Critical","Phase 2","Phase 2","Phase 2","Phase 2","Phase 2","Phase 2",""]
+    }
   ]
 }

@@ -1,48 +1,394 @@
 {
   "ecommerce": [
-    { "system": "DollarTree.com", "status": "ok", "statusText": "Online", "uptime": "99.99%", "sessions": "24,512" },
-    { "system": "FamilyDollar.com", "status": "ok", "statusText": "Online", "uptime": "99.98%", "sessions": "18,204" },
-    { "system": "Mobile App (DT)", "status": "warn", "statusText": "Degraded", "uptime": "98.50%", "sessions": "8,102", "highlightSessions": true },
-    { "system": "Checkout Service", "status": "ok", "statusText": "Online", "uptime": "100%", "sessions": "-" },
-    { "system": "Payment Gateway API", "status": "ok", "statusText": "Online", "uptime": "99.95%", "sessions": "12,001" },
-    { "system": "User Profile DB", "status": "ok", "statusText": "Online", "uptime": "99.90%", "sessions": "-" }
+    {
+      "system": "DollarTree.com", "status": "ok", "statusText": "Online", "uptime": "99.99%", "sessions": "24,512",
+      "metrics": [
+        { "label": "Avg Page Load", "value": "1.2 s", "status": "ok" },
+        { "label": "Error Rate", "value": "0.01%", "status": "ok" },
+        { "label": "Active Sessions", "value": "24,512", "status": "ok" },
+        { "label": "Uptime", "value": "99.99%", "status": "ok" }
+      ]
+    },
+    {
+      "system": "DT Digital Storefront", "status": "ok", "statusText": "Online", "uptime": "99.98%", "sessions": "18,204",
+      "metrics": [
+        { "label": "Avg Page Load", "value": "1.4 s", "status": "ok" },
+        { "label": "Error Rate", "value": "0.02%", "status": "ok" },
+        { "label": "Active Sessions", "value": "18,204", "status": "ok" },
+        { "label": "Uptime", "value": "99.98%", "status": "ok" }
+      ]
+    },
+    {
+      "system": "Mobile App (DT)", "status": "warn", "statusText": "Degraded", "uptime": "98.50%", "sessions": "8,102", "highlightSessions": true,
+      "metrics": [
+        { "label": "Avg Load Time", "value": "3.8 s", "status": "warn" },
+        { "label": "Error Rate", "value": "0.80%", "status": "warn" },
+        { "label": "Active Sessions", "value": "8,102", "status": "ok" },
+        { "label": "Uptime", "value": "98.50%", "status": "warn" }
+      ]
+    },
+    {
+      "system": "Checkout Service", "status": "ok", "statusText": "Online", "uptime": "100%", "sessions": "-",
+      "metrics": [
+        { "label": "Transactions / hr", "value": "4,200", "status": "ok" },
+        { "label": "Avg Response", "value": "180 ms", "status": "ok" },
+        { "label": "Error Rate", "value": "0.00%", "status": "ok" },
+        { "label": "Uptime", "value": "100%", "status": "ok" }
+      ]
+    },
+    {
+      "system": "Payment Gateway API", "status": "ok", "statusText": "Online", "uptime": "99.95%", "sessions": "12,001",
+      "metrics": [
+        { "label": "Avg Latency", "value": "245 ms", "status": "ok" },
+        { "label": "Requests / hr", "value": "12,001", "status": "ok" },
+        { "label": "Error Rate", "value": "0.05%", "status": "ok" },
+        { "label": "Uptime", "value": "99.95%", "status": "ok" }
+      ]
+    },
+    {
+      "system": "User Profile DB", "status": "ok", "statusText": "Online", "uptime": "99.90%", "sessions": "-",
+      "metrics": [
+        { "label": "Avg Query Time", "value": "85 ms", "status": "ok" },
+        { "label": "Queries / hr", "value": "8,400", "status": "ok" },
+        { "label": "Cache Hit Rate", "value": "94%", "status": "ok" },
+        { "label": "Uptime", "value": "99.90%", "status": "ok" }
+      ]
+    }
   ],
+  "ecommerceSummary": [
+    { "label": "Avg Uptime", "value": "99.66%", "status": "ok" },
+    { "label": "Total Sessions", "value": "62,819", "status": "ok" },
+    { "label": "Degraded Systems", "value": "1", "status": "warn" },
+    { "label": "Checkout Success", "value": "99.2%", "status": "ok" }
+  ],
+
   "pos": [
-    { "application": "DT POS Core", "region": "East Coast", "status": "ok", "statusText": "Stable", "offline": "12" },
-    { "application": "DT POS Core", "region": "West Coast", "status": "ok", "statusText": "Stable", "offline": "5" },
-    { "application": "DT POS Core", "region": "Midwest", "status": "ok", "statusText": "Stable", "offline": "2" },
-    { "application": "DT POS Core", "region": "South", "status": "warn", "statusText": "Slow Sync", "offline": "45" },
-    { "application": "FD POS Core", "region": "National", "status": "crit", "statusText": "Outage", "offline": "142", "highlightOffline": true },
-    { "application": "Inventory Scanner", "region": "East", "status": "ok", "statusText": "Stable", "offline": "0" },
-    { "application": "Inventory Scanner", "region": "West", "status": "ok", "statusText": "Stable", "offline": "4" },
-    { "application": "Self-Checkout UI", "region": "National", "status": "ok", "statusText": "Stable", "offline": "8" }
+    {
+      "application": "DT POS Core", "region": "East Coast", "status": "ok", "statusText": "Stable", "offline": "12",
+      "metrics": [
+        { "label": "Offline Stores", "value": "12", "status": "ok" },
+        { "label": "Sync Lag", "value": "0.8 s", "status": "ok" },
+        { "label": "Tx Success", "value": "99.4%", "status": "ok" },
+        { "label": "Avg Tx Time", "value": "1.2 s", "status": "ok" }
+      ]
+    },
+    {
+      "application": "Register Suite", "region": "West Coast", "status": "ok", "statusText": "Stable", "offline": "5",
+      "metrics": [
+        { "label": "Offline Stores", "value": "5", "status": "ok" },
+        { "label": "Sync Lag", "value": "0.6 s", "status": "ok" },
+        { "label": "Tx Success", "value": "99.7%", "status": "ok" },
+        { "label": "Avg Tx Time", "value": "1.1 s", "status": "ok" }
+      ]
+    },
+    {
+      "application": "Checkout Engine", "region": "Midwest", "status": "ok", "statusText": "Stable", "offline": "2",
+      "metrics": [
+        { "label": "Offline Stores", "value": "2", "status": "ok" },
+        { "label": "Sync Lag", "value": "0.5 s", "status": "ok" },
+        { "label": "Tx Success", "value": "99.8%", "status": "ok" },
+        { "label": "Avg Tx Time", "value": "1.0 s", "status": "ok" }
+      ]
+    },
+    {
+      "application": "Lane Controller", "region": "South", "status": "warn", "statusText": "Slow Sync", "offline": "45",
+      "metrics": [
+        { "label": "Offline Stores", "value": "45", "status": "warn" },
+        { "label": "Sync Lag", "value": "4.2 s", "status": "warn" },
+        { "label": "Tx Success", "value": "96.8%", "status": "warn" },
+        { "label": "Avg Tx Time", "value": "2.8 s", "status": "warn" }
+      ]
+    },
+    {
+      "application": "FD POS Core", "region": "National", "status": "crit", "statusText": "Outage", "offline": "142", "highlightOffline": true,
+      "metrics": [
+        { "label": "Offline Stores", "value": "142", "status": "crit" },
+        { "label": "Sync Lag", "value": "12.8 s", "status": "crit" },
+        { "label": "Tx Success", "value": "0.0%", "status": "crit" },
+        { "label": "Avg Tx Time", "value": "N/A", "status": "crit" }
+      ]
+    },
+    {
+      "application": "Inventory Scanner", "region": "East", "status": "ok", "statusText": "Stable", "offline": "0",
+      "metrics": [
+        { "label": "Offline Devices", "value": "0", "status": "ok" },
+        { "label": "Scan Rate / hr", "value": "840", "status": "ok" },
+        { "label": "Accuracy", "value": "99.9%", "status": "ok" },
+        { "label": "Battery Low", "value": "2", "status": "ok" }
+      ]
+    },
+    {
+      "application": "Inventory Scanner", "region": "West", "status": "ok", "statusText": "Stable", "offline": "4",
+      "metrics": [
+        { "label": "Offline Devices", "value": "4", "status": "ok" },
+        { "label": "Scan Rate / hr", "value": "820", "status": "ok" },
+        { "label": "Accuracy", "value": "99.7%", "status": "ok" },
+        { "label": "Battery Low", "value": "5", "status": "ok" }
+      ]
+    },
+    {
+      "application": "Self-Checkout UI", "region": "National", "status": "ok", "statusText": "Stable", "offline": "8",
+      "metrics": [
+        { "label": "Offline Units", "value": "8", "status": "ok" },
+        { "label": "Avg Session", "value": "4.2 min", "status": "ok" },
+        { "label": "Error Rate", "value": "0.3%", "status": "ok" },
+        { "label": "Transactions / hr", "value": "3,180", "status": "ok" }
+      ]
+    }
   ],
+  "posSummary": [
+    { "label": "Total Offline Stores", "value": "216", "status": "crit" },
+    { "label": "Critical Regions", "value": "1", "status": "crit" },
+    { "label": "Avg Sync Lag", "value": "2.4 s", "status": "warn" },
+    { "label": "Tx Success Rate", "value": "98.1%", "status": "warn" }
+  ],
+
   "logistics": [
-    { "location": "Chesapeake, VA", "status": "ok", "statusText": "OK", "queue": "Normal" },
-    { "location": "Joliet, IL", "status": "warn", "statusText": "Delayed", "queue": "High", "highlightQueue": true },
-    { "location": "Stockton, CA", "status": "ok", "statusText": "OK", "queue": "Normal" },
-    { "location": "Savannah, GA", "status": "ok", "statusText": "OK", "queue": "Normal" },
-    { "location": "San Bernardino, CA", "status": "ok", "statusText": "OK", "queue": "Normal" },
-    { "location": "Ridgefield, WA", "status": "ok", "statusText": "OK", "queue": "Normal" },
-    { "location": "Marianna, FL", "status": "ok", "statusText": "OK", "queue": "Normal" },
-    { "location": "Rome, NY", "status": "warn", "statusText": "Delayed", "queue": "Medium" },
-    { "location": "Warren, MO", "status": "ok", "statusText": "OK", "queue": "Normal" },
-    { "location": "Ocala, FL", "status": "ok", "statusText": "OK", "queue": "Normal" }
+    {
+      "location": "Chesapeake, VA", "status": "ok", "statusText": "OK", "queue": "Normal",
+      "metrics": [
+        { "label": "Throughput / hr", "value": "2,140", "status": "ok" },
+        { "label": "Queue Depth", "value": "Normal", "status": "ok" },
+        { "label": "WMS Uptime", "value": "99.97%", "status": "ok" },
+        { "label": "Dock Wait", "value": "12 min", "status": "ok" }
+      ]
+    },
+    {
+      "location": "Joliet, IL", "status": "warn", "statusText": "Delayed", "queue": "High", "highlightQueue": true,
+      "metrics": [
+        { "label": "Throughput / hr", "value": "1,240", "status": "warn" },
+        { "label": "Queue Depth", "value": "High", "status": "warn" },
+        { "label": "WMS Uptime", "value": "98.40%", "status": "warn" },
+        { "label": "Dock Wait", "value": "48 min", "status": "warn" }
+      ]
+    },
+    {
+      "location": "Stockton, CA", "status": "crit", "statusText": "Critical", "queue": "High",
+      "metrics": [
+        { "label": "Throughput / hr", "value": "420", "status": "crit" },
+        { "label": "Queue Depth", "value": "High", "status": "crit" },
+        { "label": "WMS Uptime", "value": "72.1%", "status": "crit" },
+        { "label": "Dock Wait", "value": "94 min", "status": "crit" }
+      ]
+    },
+    {
+      "location": "Savannah, GA", "status": "ok", "statusText": "OK", "queue": "Normal",
+      "metrics": [
+        { "label": "Throughput / hr", "value": "1,860", "status": "ok" },
+        { "label": "Queue Depth", "value": "Normal", "status": "ok" },
+        { "label": "WMS Uptime", "value": "99.95%", "status": "ok" },
+        { "label": "Dock Wait", "value": "11 min", "status": "ok" }
+      ]
+    },
+    {
+      "location": "San Bernardino, CA", "status": "ok", "statusText": "OK", "queue": "Normal",
+      "metrics": [
+        { "label": "Throughput / hr", "value": "2,020", "status": "ok" },
+        { "label": "Queue Depth", "value": "Normal", "status": "ok" },
+        { "label": "WMS Uptime", "value": "99.89%", "status": "ok" },
+        { "label": "Dock Wait", "value": "14 min", "status": "ok" }
+      ]
+    },
+    {
+      "location": "Ridgefield, WA", "status": "ok", "statusText": "OK", "queue": "Normal",
+      "metrics": [
+        { "label": "Throughput / hr", "value": "1,760", "status": "ok" },
+        { "label": "Queue Depth", "value": "Normal", "status": "ok" },
+        { "label": "WMS Uptime", "value": "99.94%", "status": "ok" },
+        { "label": "Dock Wait", "value": "13 min", "status": "ok" }
+      ]
+    },
+    {
+      "location": "Marianna, FL", "status": "ok", "statusText": "OK", "queue": "Normal",
+      "metrics": [
+        { "label": "Throughput / hr", "value": "1,620", "status": "ok" },
+        { "label": "Queue Depth", "value": "Normal", "status": "ok" },
+        { "label": "WMS Uptime", "value": "99.91%", "status": "ok" },
+        { "label": "Dock Wait", "value": "10 min", "status": "ok" }
+      ]
+    },
+    {
+      "location": "Rome, NY", "status": "warn", "statusText": "Delayed", "queue": "Medium",
+      "metrics": [
+        { "label": "Throughput / hr", "value": "1,380", "status": "warn" },
+        { "label": "Queue Depth", "value": "Medium", "status": "warn" },
+        { "label": "WMS Uptime", "value": "99.20%", "status": "warn" },
+        { "label": "Dock Wait", "value": "32 min", "status": "warn" }
+      ]
+    },
+    {
+      "location": "Warren, MO", "status": "ok", "statusText": "OK", "queue": "Normal",
+      "metrics": [
+        { "label": "Throughput / hr", "value": "1,840", "status": "ok" },
+        { "label": "Queue Depth", "value": "Normal", "status": "ok" },
+        { "label": "WMS Uptime", "value": "99.96%", "status": "ok" },
+        { "label": "Dock Wait", "value": "9 min", "status": "ok" }
+      ]
+    },
+    {
+      "location": "Ocala, FL", "status": "ok", "statusText": "OK", "queue": "Normal",
+      "metrics": [
+        { "label": "Throughput / hr", "value": "1,720", "status": "ok" },
+        { "label": "Queue Depth", "value": "Normal", "status": "ok" },
+        { "label": "WMS Uptime", "value": "99.88%", "status": "ok" },
+        { "label": "Dock Wait", "value": "16 min", "status": "ok" }
+      ]
+    }
   ],
+  "logisticsSummary": [
+    { "label": "Active DCs", "value": "8 / 10", "status": "warn" },
+    { "label": "Delayed Locations", "value": "2", "status": "warn" },
+    { "label": "Avg Throughput / hr", "value": "1,856", "status": "ok" },
+    { "label": "Avg Dock Wait", "value": "18 min", "status": "ok" }
+  ],
+
   "payments": [
-    { "provider": "Credit/Debit (Worldpay)", "latency": "845 ms", "status": "ok", "statusText": "OK" },
-    { "provider": "EBT Services", "latency": "1,204 ms", "status": "warn", "statusText": "Slow", "highlightLatency": true },
-    { "provider": "Gift Cards", "latency": "120 ms", "status": "ok", "statusText": "OK" },
-    { "provider": "PayPal (Online)", "latency": "450 ms", "status": "ok", "statusText": "OK" },
-    { "provider": "Apple Pay", "latency": "230 ms", "status": "ok", "statusText": "OK" },
-    { "provider": "Google Pay", "latency": "250 ms", "status": "ok", "statusText": "OK" }
+    {
+      "provider": "Credit/Debit (Worldpay)", "latency": "845 ms", "status": "ok", "statusText": "OK",
+      "metrics": [
+        { "label": "Avg Latency", "value": "845 ms", "status": "ok" },
+        { "label": "Success Rate", "value": "99.8%", "status": "ok" },
+        { "label": "Transactions / hr", "value": "8,420", "status": "ok" },
+        { "label": "Timeout Count", "value": "3", "status": "ok" }
+      ]
+    },
+    {
+      "provider": "EBT Services", "latency": "1,204 ms", "status": "warn", "statusText": "Slow", "highlightLatency": true,
+      "metrics": [
+        { "label": "Avg Latency", "value": "1,204 ms", "status": "warn" },
+        { "label": "Success Rate", "value": "97.2%", "status": "warn" },
+        { "label": "Transactions / hr", "value": "1,840", "status": "ok" },
+        { "label": "Timeout Count", "value": "48", "status": "warn" }
+      ]
+    },
+    {
+      "provider": "Gift Cards", "latency": "120 ms", "status": "ok", "statusText": "OK",
+      "metrics": [
+        { "label": "Avg Latency", "value": "120 ms", "status": "ok" },
+        { "label": "Success Rate", "value": "99.9%", "status": "ok" },
+        { "label": "Transactions / hr", "value": "2,160", "status": "ok" },
+        { "label": "Timeout Count", "value": "0", "status": "ok" }
+      ]
+    },
+    {
+      "provider": "PayPal (Online)", "latency": "450 ms", "status": "ok", "statusText": "OK",
+      "metrics": [
+        { "label": "Avg Latency", "value": "450 ms", "status": "ok" },
+        { "label": "Success Rate", "value": "99.5%", "status": "ok" },
+        { "label": "Transactions / hr", "value": "3,840", "status": "ok" },
+        { "label": "Timeout Count", "value": "8", "status": "ok" }
+      ]
+    },
+    {
+      "provider": "Apple Pay", "latency": "230 ms", "status": "ok", "statusText": "OK",
+      "metrics": [
+        { "label": "Avg Latency", "value": "230 ms", "status": "ok" },
+        { "label": "Success Rate", "value": "99.7%", "status": "ok" },
+        { "label": "Transactions / hr", "value": "4,200", "status": "ok" },
+        { "label": "Timeout Count", "value": "2", "status": "ok" }
+      ]
+    },
+    {
+      "provider": "Google Pay", "latency": "250 ms", "status": "ok", "statusText": "OK",
+      "metrics": [
+        { "label": "Avg Latency", "value": "250 ms", "status": "ok" },
+        { "label": "Success Rate", "value": "99.6%", "status": "ok" },
+        { "label": "Transactions / hr", "value": "3,620", "status": "ok" },
+        { "label": "Timeout Count", "value": "4", "status": "ok" }
+      ]
+    }
   ],
+  "paymentsSummary": [
+    { "label": "Avg Latency", "value": "516 ms", "status": "warn" },
+    { "label": "Overall Success Rate", "value": "99.1%", "status": "ok" },
+    { "label": "Slow Providers", "value": "1", "status": "warn" },
+    { "label": "Total Timeouts", "value": "65", "status": "ok" }
+  ],
+
   "health": {
     "authTime": "420ms",
     "apiError": "0.04%",
     "incidents": "2",
     "dbLoad": "42%"
   },
+  "healthSummary": [
+    { "label": "Avg Auth Time", "value": "420 ms", "status": "warn" },
+    { "label": "API Error Rate", "value": "0.04%", "status": "ok" },
+    { "label": "Active Incidents", "value": "2", "status": "warn" },
+    { "label": "DB Load", "value": "42%", "status": "ok" },
+    { "label": "CPU Avg", "value": "58%", "status": "ok" },
+    { "label": "Memory Avg", "value": "67%", "status": "warn" }
+  ],
+
+  "healthItems": [
+    {
+      "name": "Authentication Service",
+      "subtitle": "SSO / LDAP",
+      "overallStatus": "warn",
+      "metrics": [
+        { "label": "Avg Auth Time", "value": "420 ms", "status": "warn" },
+        { "label": "Failed Logins / hr", "value": "34", "status": "ok" },
+        { "label": "Token Refresh Rate", "value": "1,820 / hr", "status": "ok" },
+        { "label": "Session Errors", "value": "0.12%", "status": "warn" }
+      ]
+    },
+    {
+      "name": "API Gateway",
+      "subtitle": "Kong / REST & GraphQL",
+      "overallStatus": "ok",
+      "metrics": [
+        { "label": "Error Rate", "value": "0.04%", "status": "ok" },
+        { "label": "Avg Latency", "value": "82 ms", "status": "ok" },
+        { "label": "Requests / min", "value": "9,440", "status": "ok" },
+        { "label": "Timeout Rate", "value": "0.01%", "status": "ok" }
+      ]
+    },
+    {
+      "name": "Incident Management",
+      "subtitle": "ServiceNow",
+      "overallStatus": "warn",
+      "metrics": [
+        { "label": "Open Incidents", "value": "2", "status": "warn" },
+        { "label": "P1 / P2 Count", "value": "1 / 1", "status": "warn" },
+        { "label": "Avg Resolution Time", "value": "48 min", "status": "ok" },
+        { "label": "SLA Breach Risk", "value": "1", "status": "warn" }
+      ]
+    },
+    {
+      "name": "Message Broker",
+      "subtitle": "Apache Kafka",
+      "overallStatus": "ok",
+      "metrics": [
+        { "label": "Consumer Lag", "value": "120 msg", "status": "ok" },
+        { "label": "Throughput", "value": "28K msg/s", "status": "ok" },
+        { "label": "Broker CPU", "value": "38%", "status": "ok" },
+        { "label": "Under-Replicated", "value": "0", "status": "ok" }
+      ]
+    },
+    {
+      "name": "Monitoring Stack",
+      "subtitle": "Datadog / Splunk",
+      "overallStatus": "ok",
+      "metrics": [
+        { "label": "Agents Reporting", "value": "98.6%", "status": "ok" },
+        { "label": "Log Ingest Lag", "value": "4 s", "status": "ok" },
+        { "label": "Alert Noise Rate", "value": "6%", "status": "ok" },
+        { "label": "Dashboard Load", "value": "1.1 s", "status": "ok" }
+      ]
+    },
+    {
+      "name": "CDN & Edge Cache",
+      "subtitle": "Akamai",
+      "overallStatus": "ok",
+      "metrics": [
+        { "label": "Cache Hit Rate", "value": "91.4%", "status": "ok" },
+        { "label": "Origin Pull Rate", "value": "8.6%", "status": "ok" },
+        { "label": "Edge Latency", "value": "18 ms", "status": "ok" },
+        { "label": "Bandwidth Util.", "value": "54%", "status": "ok" }
+      ]
+    }
+  ],
+
   "infrastructure": [
     { "component1": "Mainframe (CICS)", "status1": "ok", "component2": "Network (Routing)", "status2": "ok" },
     { "component1": "Middleware (Kafka)", "status1": "ok", "component2": "Security (Firewalls)", "status2": "ok" },
@@ -50,12 +396,171 @@
     { "component1": "Load Balancers", "status1": "ok", "component2": "DNS Services", "status2": "ok" },
     { "component1": "Storage Arrays", "status1": "ok", "component2": "Backup Systems", "status2": "warn" }
   ],
+  "infrastructureItems": [
+    {
+      "name": "Mainframe (CICS)", "status": "ok",
+      "metrics": [
+        { "label": "CPU Utilization", "value": "44%", "status": "ok" },
+        { "label": "Memory Usage", "value": "61%", "status": "ok" },
+        { "label": "Uptime", "value": "99.99%", "status": "ok" },
+        { "label": "Active Jobs", "value": "128", "status": "ok" }
+      ]
+    },
+    {
+      "name": "Network (Routing)", "status": "ok",
+      "metrics": [
+        { "label": "Avg Latency", "value": "4 ms", "status": "ok" },
+        { "label": "Packet Loss", "value": "0.00%", "status": "ok" },
+        { "label": "Bandwidth Usage", "value": "62%", "status": "ok" },
+        { "label": "Active Routes", "value": "1,840", "status": "ok" }
+      ]
+    },
+    {
+      "name": "Middleware (Kafka)", "status": "ok",
+      "metrics": [
+        { "label": "Messages / sec", "value": "12,400", "status": "ok" },
+        { "label": "Consumer Lag", "value": "120 ms", "status": "ok" },
+        { "label": "Broker Uptime", "value": "99.97%", "status": "ok" },
+        { "label": "Topic Count", "value": "84", "status": "ok" }
+      ]
+    },
+    {
+      "name": "Security (Firewalls)", "status": "ok",
+      "metrics": [
+        { "label": "Blocked Requests", "value": "1,284", "status": "ok" },
+        { "label": "Rule Hits / sec", "value": "420", "status": "ok" },
+        { "label": "Uptime", "value": "100%", "status": "ok" },
+        { "label": "Active Policies", "value": "248", "status": "ok" }
+      ]
+    },
+    {
+      "name": "Windows Servers", "status": "ok",
+      "metrics": [
+        { "label": "CPU Utilization", "value": "52%", "status": "ok" },
+        { "label": "Memory Usage", "value": "68%", "status": "ok" },
+        { "label": "Disk Free", "value": "38%", "status": "ok" },
+        { "label": "Avg Uptime", "value": "99.93%", "status": "ok" }
+      ]
+    },
+    {
+      "name": "Cloud VPN", "status": "ok",
+      "metrics": [
+        { "label": "Tunnel Latency", "value": "18 ms", "status": "ok" },
+        { "label": "Active Tunnels", "value": "24", "status": "ok" },
+        { "label": "Packet Loss", "value": "0.01%", "status": "ok" },
+        { "label": "Uptime", "value": "99.98%", "status": "ok" }
+      ]
+    },
+    {
+      "name": "Load Balancers", "status": "ok",
+      "metrics": [
+        { "label": "Requests / sec", "value": "4,820", "status": "ok" },
+        { "label": "Active Connections", "value": "18,400", "status": "ok" },
+        { "label": "Avg Response", "value": "12 ms", "status": "ok" },
+        { "label": "Uptime", "value": "100%", "status": "ok" }
+      ]
+    },
+    {
+      "name": "DNS Services", "status": "ok",
+      "metrics": [
+        { "label": "Queries / sec", "value": "2,140", "status": "ok" },
+        { "label": "Avg Resolve Time", "value": "3 ms", "status": "ok" },
+        { "label": "NXDOMAIN Rate", "value": "0.8%", "status": "ok" },
+        { "label": "Uptime", "value": "100%", "status": "ok" }
+      ]
+    },
+    {
+      "name": "Storage Arrays", "status": "ok",
+      "metrics": [
+        { "label": "Capacity Used", "value": "71%", "status": "ok" },
+        { "label": "IOPS", "value": "48,200", "status": "ok" },
+        { "label": "Avg Latency", "value": "2.4 ms", "status": "ok" },
+        { "label": "Replication Lag", "value": "1.2 s", "status": "ok" }
+      ]
+    },
+    {
+      "name": "Backup Systems", "status": "warn",
+      "metrics": [
+        { "label": "Last Full Backup", "value": "Failed", "status": "warn" },
+        { "label": "Backup Duration", "value": "6.8 hr", "status": "warn" },
+        { "label": "Repo Usage", "value": "88%", "status": "warn" },
+        { "label": "Agent Status", "value": "2 Offline", "status": "warn" }
+      ]
+    }
+  ],
+  "infrastructureSummary": [
+    { "label": "Total Components", "value": "10", "status": "ok" },
+    { "label": "Issues Found", "value": "1", "status": "warn" },
+    { "label": "Avg Server Uptime", "value": "99.89%", "status": "ok" },
+    { "label": "Network Latency", "value": "4 ms", "status": "ok" }
+  ],
+
   "databases": [
-    { "name": "Customer Data", "type": "Cassandra", "status": "ok", "statusText": "Stable", "lag": "12ms" },
-    { "name": "Inventory Master", "type": "Oracle", "status": "ok", "statusText": "Stable", "lag": "5ms" },
-    { "name": "Order History", "type": "SQL Server", "status": "warn", "statusText": "Warning", "lag": "1,400ms", "highlightLag": true },
-    { "name": "Product Catalog", "type": "MongoDB", "status": "ok", "statusText": "Stable", "lag": "2ms" },
-    { "name": "Employee Records", "type": "PostgreSQL", "status": "ok", "statusText": "Stable", "lag": "4ms" },
-    { "name": "Log Aggregation", "type": "Elasticsearch", "status": "warn", "statusText": "High IO", "lag": "300ms" }
+    {
+      "name": "Customer Data", "type": "Cassandra", "status": "ok", "statusText": "Stable", "lag": "12ms",
+      "metrics": [
+        { "label": "Avg Response Time", "value": "45 ms", "status": "ok" },
+        { "label": "Query Rate / min", "value": "1,240", "status": "ok" },
+        { "label": "Active Connections", "value": "120", "status": "ok" },
+        { "label": "Tablespace Usage", "value": "62%", "status": "ok" },
+        { "label": "Replication Lag", "value": "12 ms", "status": "ok" }
+      ]
+    },
+    {
+      "name": "Inventory Master", "type": "Oracle", "status": "ok", "statusText": "Stable", "lag": "5ms",
+      "metrics": [
+        { "label": "Avg Response Time", "value": "65 ms", "status": "ok" },
+        { "label": "Query Rate / min", "value": "980", "status": "ok" },
+        { "label": "Active Connections", "value": "85", "status": "ok" },
+        { "label": "Tablespace Usage", "value": "71%", "status": "ok" },
+        { "label": "Replication Lag", "value": "5 ms", "status": "ok" }
+      ]
+    },
+    {
+      "name": "Order History", "type": "SQL Server", "status": "crit", "statusText": "Critical", "lag": "1,400ms", "highlightLag": true,
+      "metrics": [
+        { "label": "Avg Response Time", "value": "1,240 ms", "status": "crit" },
+        { "label": "Query Rate / min", "value": "440", "status": "ok" },
+        { "label": "Active Connections", "value": "210", "status": "warn" },
+        { "label": "Tablespace Usage", "value": "88%", "status": "warn" },
+        { "label": "Replication Lag", "value": "1,400 ms", "status": "crit" }
+      ]
+    },
+    {
+      "name": "Product Catalog", "type": "MongoDB", "status": "ok", "statusText": "Stable", "lag": "2ms",
+      "metrics": [
+        { "label": "Avg Response Time", "value": "28 ms", "status": "ok" },
+        { "label": "Query Rate / min", "value": "1,480", "status": "ok" },
+        { "label": "Active Connections", "value": "64", "status": "ok" },
+        { "label": "Tablespace Usage", "value": "45%", "status": "ok" },
+        { "label": "Replication Lag", "value": "2 ms", "status": "ok" }
+      ]
+    },
+    {
+      "name": "Employee Records", "type": "PostgreSQL", "status": "ok", "statusText": "Stable", "lag": "4ms",
+      "metrics": [
+        { "label": "Avg Response Time", "value": "55 ms", "status": "ok" },
+        { "label": "Query Rate / min", "value": "320", "status": "ok" },
+        { "label": "Active Connections", "value": "28", "status": "ok" },
+        { "label": "Tablespace Usage", "value": "38%", "status": "ok" },
+        { "label": "Replication Lag", "value": "4 ms", "status": "ok" }
+      ]
+    },
+    {
+      "name": "Log Aggregation", "type": "Elasticsearch", "status": "crit", "statusText": "Critical – High IO", "lag": "300ms",
+      "metrics": [
+        { "label": "Avg Response Time", "value": "320 ms", "status": "warn" },
+        { "label": "Query Rate / min", "value": "360", "status": "ok" },
+        { "label": "Active Connections", "value": "180", "status": "warn" },
+        { "label": "Disk IO", "value": "94%", "status": "crit" },
+        { "label": "Replication Lag", "value": "300 ms", "status": "warn" }
+      ]
+    }
+  ],
+  "databasesSummary": [
+    { "label": "Avg Response Time", "value": "287 ms", "status": "warn" },
+    { "label": "Total Query Rate / min", "value": "4,820", "status": "ok" },
+    { "label": "Replication Issues", "value": "2", "status": "crit" },
+    { "label": "High IO Instances", "value": "1", "status": "warn" }
   ]
 }
