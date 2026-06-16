@@ -797,7 +797,7 @@ function KtloDashboard() {
     <div className="app-container">
       <header className="app-header">
         <div className="header-brand">
-          <img src="/dt-logo.png" alt="Dollar Tree" style={{ width: '40px', height: '40px', objectFit: 'contain' }} />
+          <img src={`${import.meta.env.BASE_URL}dt-logo.png`} alt="Dollar Tree" style={{ width: '40px', height: '40px', objectFit: 'contain' }} />
           <div className="brand-group">
             <h1 className="brand-title">Dollar Tree Enterprise</h1>
             <nav className="nav-tabs">
