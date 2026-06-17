@@ -825,13 +825,13 @@ function KtloDashboard() {
           <Widget title="Store Applications (POS)"  icon={Icons.Store}    className="widget-half"  delay={0.2} alertLevel={worstStatus(data.posSummary)}             onExpand={() => setExpandedId('pos')}>
             {renderPosTable()}
           </Widget>
-          <Widget title="Distribution Centers (DCs)" icon={Icons.Truck}   className="widget-third" delay={0.3} alertLevel={worstStatus(data.logisticsSummary)}       onExpand={() => setExpandedId('logistics')}>
+          <Widget title="Distribution Centers (DCs)" icon={Icons.Truck}   className="widget-half"  delay={0.3} alertLevel={worstStatus(data.logisticsSummary)}       onExpand={() => setExpandedId('logistics')}>
             {renderLogisticsTable()}
           </Widget>
-          <Widget title="Payment Gateways"           icon={Icons.Card}    className="widget-third" delay={0.4} alertLevel={worstStatus(data.paymentsSummary)}        onExpand={() => setExpandedId('payments')}>
+          <Widget title="Payment Gateways"           icon={Icons.Card}    className="widget-half"  delay={0.4} alertLevel={worstStatus(data.paymentsSummary)}        onExpand={() => setExpandedId('payments')}>
             {renderPaymentsTable()}
           </Widget>
-          <Widget title="System Health"              icon={Icons.Activity} className="widget-third" delay={0.5} alertLevel={worstStatus(data.healthSummary)}          onExpand={() => setExpandedId('health')}>
+          <Widget title="System Health"              icon={Icons.Activity} className="widget-half"  delay={0.5} alertLevel={worstStatus(data.healthSummary)}          onExpand={() => setExpandedId('health')}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginTop: '4px' }}>
               {data.healthSummary.map((m, i) => {
                 const s = SC[m.status] || SC.ok;
