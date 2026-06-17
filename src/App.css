@@ -324,7 +324,7 @@
 
 /* RESPONSIVE DESIGN */
 
-@media (max-width: 1400px) {
+@media (max-width: 1100px) {
   .widget-quarter { grid-column: span 4; }
   .widget-third { grid-column: span 6; }
 }

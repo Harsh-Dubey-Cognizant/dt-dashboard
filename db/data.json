@@ -356,7 +356,7 @@
     },
     {
       "name": "Message Broker",
-      "subtitle": "Apache Kafka",
+      "subtitle": "SOA",
       "overallStatus": "ok",
       "metrics": [
         { "label": "Consumer Lag", "value": "120 msg", "status": "ok" },
@@ -390,15 +390,15 @@
   ],
 
   "infrastructure": [
-    { "component1": "Mainframe (CICS)", "status1": "ok", "component2": "Network (Routing)", "status2": "ok" },
-    { "component1": "Middleware (Kafka)", "status1": "ok", "component2": "Security (Firewalls)", "status2": "ok" },
+    { "component1": "AS400", "status1": "ok", "component2": "Network (Routing)", "status2": "ok" },
+    { "component1": "Middleware (SOA)", "status1": "ok", "component2": "Security (Firewalls)", "status2": "ok" },
     { "component1": "Windows Servers", "status1": "ok", "component2": "Cloud VPN", "status2": "ok" },
     { "component1": "Load Balancers", "status1": "ok", "component2": "DNS Services", "status2": "ok" },
     { "component1": "Storage Arrays", "status1": "ok", "component2": "Backup Systems", "status2": "warn" }
   ],
   "infrastructureItems": [
     {
-      "name": "Mainframe (CICS)", "status": "ok",
+      "name": "AS400", "status": "ok",
       "metrics": [
         { "label": "CPU Utilization", "value": "44%", "status": "ok" },
         { "label": "Memory Usage", "value": "61%", "status": "ok" },
@@ -416,7 +416,7 @@
       ]
     },
     {
-      "name": "Middleware (Kafka)", "status": "ok",
+      "name": "Middleware (SOA)", "status": "ok",
       "metrics": [
         { "label": "Messages / sec", "value": "12,400", "status": "ok" },
         { "label": "Consumer Lag", "value": "120 ms", "status": "ok" },
